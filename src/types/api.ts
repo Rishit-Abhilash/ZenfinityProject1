@@ -20,6 +20,10 @@ export interface CycleSnapshot {
   voltage_avg: number;
   voltage_min: number;
   voltage_max: number;
+  average_soh: number;
+  min_soh: number;
+  max_soh: number;
+  current_avg: number;
   alert_details: {
     warnings: string[];
     protections: string[];

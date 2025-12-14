@@ -4,7 +4,7 @@ import type { CycleSnapshot } from '@/types/api';
 
 interface CycleResponse {
   success: boolean;
-  data: any;
+  data: CycleSnapshot | null;
 }
 
 export function useCycleData(imei: string | null, cycleNumber: number | null) {
@@ -18,18 +18,18 @@ export function useCycleData(imei: string | null, cycleNumber: number | null) {
   );
 
   // Parse alert_details if it's a string
-  let cycle = data?.data || null;
+  let cycle: CycleSnapshot | null = data?.data || null;
   if (cycle && typeof cycle.alert_details === 'string') {
     try {
       cycle = {
         ...cycle,
         alert_details: JSON.parse(cycle.alert_details)
-      };
+      } as CycleSnapshot;
     } catch (e) {
       cycle = {
         ...cycle,
         alert_details: { warnings: [], protections: [] }
-      };
+      } as CycleSnapshot;
     }
   }
 

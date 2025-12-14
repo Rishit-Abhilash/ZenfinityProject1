@@ -308,7 +308,7 @@ export default function Dashboard() {
                     {cycle.alert_details.warnings.length} Warning(s)
                   </Badge>
                   <ul style={{ marginTop: '8px', paddingLeft: '20px' }}>
-                    {cycle.alert_details.warnings.map((warning, i) => (
+                    {cycle.alert_details.warnings.map((warning: string, i: number) => (
                       <li key={i}>{warning}</li>
                     ))}
                   </ul>
@@ -325,7 +325,7 @@ export default function Dashboard() {
                     {cycle.alert_details.protections.length} Protection(s)
                   </Badge>
                   <ul style={{ marginTop: '8px', paddingLeft: '20px' }}>
-                    {cycle.alert_details.protections.map((protection, i) => (
+                    {cycle.alert_details.protections.map((protection: string, i: number) => (
                       <li key={i}>{protection}</li>
                     ))}
                   </ul>
