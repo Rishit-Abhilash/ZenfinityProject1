@@ -302,7 +302,7 @@ export default function Dashboard() {
           {/* Alerts */}
           <Card title="Alerts & Protections">
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {cycle.alert_details.warnings.length > 0 ? (
+              {Array.isArray(cycle.alert_details.warnings) && cycle.alert_details.warnings.length > 0 ? (
                 <div>
                   <Badge variant="warning">
                     {cycle.alert_details.warnings.length} Warning(s)
@@ -319,7 +319,7 @@ export default function Dashboard() {
                 </div>
               )}
 
-              {cycle.alert_details.protections.length > 0 ? (
+              {Array.isArray(cycle.alert_details.protections) && cycle.alert_details.protections.length > 0 ? (
                 <div>
                   <Badge variant="danger">
                     {cycle.alert_details.protections.length} Protection(s)

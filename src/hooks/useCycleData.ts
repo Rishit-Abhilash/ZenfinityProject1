@@ -34,7 +34,7 @@ export function useCycleData(imei: string | null, cycleNumber: number | null) {
   }
 
   return {
-    cycle,
+    cycle: cycle as CycleSnapshot | null,
     isLoading,
     isError: error,
   };
