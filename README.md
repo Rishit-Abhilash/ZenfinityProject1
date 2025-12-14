@@ -135,17 +135,24 @@ The dashboard uses Zenfinity Energy's brand identity:
 
 ### Deploy to Vercel
 
-1. Install Vercel CLI:
+1. Install Vercel CLI (optional):
    ```bash
    npm i -g vercel
    ```
 
-2. Deploy:
-   ```bash
-   vercel
-   ```
+2. Deploy via Vercel Dashboard or CLI:
+   - **Via Dashboard**: Connect your GitHub repository to Vercel
+   - **Via CLI**: Run `vercel` and follow the prompts
 
-3. Follow the prompts to complete deployment
+3. **IMPORTANT**: Set the following environment variable in Vercel:
+   - Go to your project settings → Environment Variables
+   - Add: `NEXT_PUBLIC_API_BASE_URL` = `https://zenfinity-intern-api-104290304048.europe-west1.run.app`
+   - Make sure to apply it to all environments (Production, Preview, Development)
+   - Redeploy after adding the environment variable
+
+4. The dashboard will be available at your Vercel deployment URL
+
+**Note**: The API will return 500 errors if `NEXT_PUBLIC_API_BASE_URL` is not configured. Check the Vercel function logs for detailed error messages.
 
 The dashboard is production-ready and optimized for Vercel's edge network.
 
